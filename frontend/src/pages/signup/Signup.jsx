@@ -6,7 +6,7 @@ import userSignup from "../../hooks/userSignup";
 const Signup = () => {
   const [inputs, setinputs] = useState({
     fullName: "",
-    username: "",
+    userName: "",
     password: "",
     confirmPassword: "",
     gender: "",
@@ -54,9 +54,9 @@ const Signup = () => {
               type="text"
               placeholder="gajumasare"
               className="w-full input input-bordered h-10"
-              value={inputs.username}
+              value={inputs.userName}
               onChange={(e) =>
-                setinputs({ ...inputs, username: e.target.value })
+                setinputs({ ...inputs, userName: e.target.value })
               }
             />
           </div>

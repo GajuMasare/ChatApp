@@ -1,19 +1,21 @@
 import React, { useState } from "react";
 import toast from "react-hot-toast";
+import { useAuthContext } from "../context/AuthContext";
 
 const userSignup = () => {
   const [loding, setloding] = useState(false);
+  const { setauthUser } = useAuthContext();
 
   const signup = async ({
     fullName,
-    username,
+    userName,
     password,
     confirmPassword,
     gender,
   }) => {
     const success = handleInputErrors({
       fullName,
-      username,
+      userName,
       password,
       confirmPassword,
       gender,
@@ -27,7 +29,7 @@ const userSignup = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           fullName,
-          username,
+          userName,
           password,
           confirmPassword,
           gender,
@@ -35,7 +37,15 @@ const userSignup = () => {
       });
 
       const data = await res.json();
-      console.log(data);
+      if (data.error) {
+        throw new Error(data.error);
+      }
+
+      //local storang
+      localStorage.setItem("chat-user", JSON.stringify(data));
+
+      //context
+      setauthUser(data);
     } catch (error) {
       toast.error(error.message);
     } finally {
@@ -49,12 +59,12 @@ export default userSignup;
 
 function handleInputErrors({
   fullName,
-  username,
+  userName,
   password,
   confirmPassword,
   gender,
 }) {
-  if (!fullName || !username || !password || !confirmPassword || !gender) {
+  if (!fullName || !userName || !password || !confirmPassword || !gender) {
     toast.error("Please fill all the fields you mother fucker");
     return false;
   }
