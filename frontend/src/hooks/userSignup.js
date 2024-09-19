@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 import { useAuthContext } from "../context/AuthContext";
 
 const userSignup = () => {
-  const [loding, setloding] = useState(false);
+  const [loading, setloading] = useState(false);
   const { setauthUser } = useAuthContext();
 
   const signup = async ({
@@ -22,7 +22,7 @@ const userSignup = () => {
     });
     if (!success) return;
 
-    setloding(true);
+    setloading(true);
     try {
       const res = await fetch("/api/auth/signup", {
         method: "POST",
@@ -49,10 +49,10 @@ const userSignup = () => {
     } catch (error) {
       toast.error(error.message);
     } finally {
-      setloding(false);
+      setloading(false);
     }
   };
-  return { loding, signup };
+  return { loading, signup };
 };
 
 export default userSignup;
@@ -78,6 +78,5 @@ function handleInputErrors({
     toast.error("Password should be at least 6 characters");
     return false;
   }
-
   return true;
 }
