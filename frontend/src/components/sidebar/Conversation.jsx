@@ -1,5 +1,5 @@
 import React from "react";
-import useConverstion from "../../../Zustand/useConverstion";
+import useConverstion from "../../Zustand/useConverstion";
 
 function Conversation({ conversation, emoji, lastIdx }) {
   const { selectedConverstion, setSelectedConverstion } = useConverstion();
