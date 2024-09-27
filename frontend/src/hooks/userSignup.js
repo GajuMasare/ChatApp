@@ -65,12 +65,12 @@ function handleInputErrors({
   gender,
 }) {
   if (!fullName || !userName || !password || !confirmPassword || !gender) {
-    toast.error("Please fill all the fields you mother fucker");
+    toast.error("Please fill all the fields");
     return false;
   }
 
   if (password !== confirmPassword) {
-    toast.error("passwords dont you dumb ass");
+    toast.error("passwords dont match");
     return false;
   }
 
