@@ -6,10 +6,10 @@ function LogoutButton() {
   const { loading, logout } = useLogout();
 
   return (
-    <div className="mt-auto">
+    <div className="mt-4 flex justify-end">
       {!loading ? (
         <BiLogOut
-          className="w-6 h6 text-white cursor-pointer"
+          className="w-5 h-5 text-gray-200 cursor-pointer hover:text-indigo-500"
           onClick={logout}
         />
       ) : (

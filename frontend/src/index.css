@@ -3,11 +3,16 @@
 @tailwind utilities;
 
 body {
-  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+  background: linear-gradient(rgba(29, 31, 43, 0.99), rgba(29, 31, 43, 0.95)),
+    url("/bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+}
+
+.blur {
+  filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
 }
 
 /* For Firefox */
@@ -41,7 +46,7 @@ body {
 }
 
 .blackBgColor {
-  background-color: #1d1f2b;
+  background-color: rgb(29, 31, 43);
 }
 
 @keyframes shake {
