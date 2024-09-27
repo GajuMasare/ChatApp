@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import Conversation from "./Conversation";
 import useGetConverstion from "../../hooks/useGetConverstion";
 import { getRandomEmoji } from "../../utils/emojis";
+import useScrollbar from "../../hooks/useScrollbar";
 
 function Conversations() {
   const { loading, conversations } = useGetConverstion();
   console.log("CONVERSTIONS:", conversations);
+  const { scrollBarLogic, onMouseEnter, onMouseLeave } = useScrollbar();
+
   return (
-    <div className="py-2 flex flex-col overflow-auto">
+    <div
+      className={` py-2 flex flex-col overflow-auto mt-5 ${scrollBarLogic} `}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
       {conversations.map((conversation, idx) => (
         <Conversation
           key={conversation._id}

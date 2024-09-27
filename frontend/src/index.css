@@ -3,38 +3,45 @@
 @tailwind utilities;
 
 body {
-  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    url("/bg.png");
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
 }
 
-::-webkit-scrollbar {
-  background-color: red;
-  width: 8px;
+/* For Firefox */
+.thin-scrollbar {
+  scrollbar-width: thin;
 }
 
-::-webkit-scrollbar-track {
-  background: #555;
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #121212;
-  border-radius: 5px;
+/* Hide scrollbar for Firefox */
+.no-scrollbar {
+  scrollbar-width: none; /* Firefox */
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #242424;
+/* General scrolling behavior */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
 }
-
 /* SHAKE ANIMATION ON HORIZONTAL DIRECTION */
 .shake {
   animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) 0.2s both;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   perspective: 1000px;
+}
+
+.grayBgColor {
+  background-color: #252837;
+}
+
+.blackBgColor {
+  background-color: #1d1f2b;
 }
 
 @keyframes shake {
