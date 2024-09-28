@@ -27,7 +27,7 @@ const Signup = () => {
     <div className="flex flex-col items-center justify-center min-w-96 mx-auto  grayBgColor rounded-3xl blur">
       <div className="w-full p-6 rounded-lg shadow-md  ">
         <h1 className="text-3-1 font-semibold text-center text-gray-300">
-          Sign Up <span className="text-blue-500"> Chat app</span>
+          Sign Up <span className="text-blue-500"> Connectify</span>
         </h1>
 
         <form onSubmit={handleSubmit}>
